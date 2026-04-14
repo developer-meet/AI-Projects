@@ -58,7 +58,7 @@ const Login = () => {
       setLoading(false);
       toast.success("Login successful 🚀");
       navigate("/dashboard");
-    }, 1200);
+    }, 500);
 
     navigate("/dashboard");
   };
