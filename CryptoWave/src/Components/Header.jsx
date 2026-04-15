@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import crptoDp from "../assets/cryptoDP.jpeg";
 
-const Header = () => {
+const Header = ({ title }) => {
   const [marketData, setMarketData] = useState({ change: 0, loading: true });
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -25,7 +25,7 @@ const Header = () => {
     };
 
     fetchMarketStatus();
-    const interval = setInterval(fetchMarketStatus, 300000);
+    const interval = setInterval(fetchMarketStatus, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -33,7 +33,7 @@ const Header = () => {
     <header className="flex items-center justify-between px-8 py-4 border-b border-[#1f2937] bg-[#0b0e14]/50 backdrop-blur-md sticky top-0 z-40">
       <div className="flex flex-col">
         <h1 className="text-xl font-bold text-white tracking-tight">
-          Dashboard
+          {title || "Overview"}
         </h1>
         {marketData.loading ? (
           <p className="text-[11px] text-gray-500 animate-pulse uppercase tracking-widest font-semibold">
