@@ -145,6 +145,11 @@ const Dashboard = () => {
               </tbody>
             </table>
           </div>
+          <div className="w-full text-center pt-8">
+            <p className="text-[#676767]">
+              © 2026 CryptoWave. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </div>

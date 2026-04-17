@@ -5,7 +5,7 @@ const GetStarted = () => {
   const navigate = useNavigate();
   return (
     <div className="bg-[#0B0E14] text-[white] min-h-screen w-full flex flex-col justify-between items-center p-[30px] gap-[100px]">
-      <div>
+      <div className="absolute">
         <Toaster position="top-right" reverseOrder={false} />
       </div>
       <div className="flex justify-center items-center gap-3.75">

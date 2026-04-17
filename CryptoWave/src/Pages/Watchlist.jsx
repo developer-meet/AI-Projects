@@ -189,6 +189,11 @@ const Watchlist = () => {
             </div>
           )}
         </div>
+        <div className="pb-8 text-center">
+          <p className="text-[#676767]">
+            © 2026 CryptoWave. All rights reserved.
+          </p>
+        </div>
       </div>
 
       {/* Confirmation Modal (Hidden logic is same as yours) */}
