@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import toast, { Toaster } from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,6 +11,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRepeatPassword, setShowRepeatPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const validateEmail = (email) => {
@@ -36,6 +39,11 @@ const Login = () => {
 
     if (!repeatPassword) {
       toast.error("Please repeat password!");
+      return;
+    }
+
+    if (password == email) {
+      toast.error("Email and Passwords are same, Please Change!");
       return;
     }
 
@@ -134,25 +142,40 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
-              <label htmlFor="">
+              <label className="relative">
                 <p>Password:</p>
                 <input
-                  className="w-full px-[5px] py-[10px] bg-transparent border-b-[1px] border-[#555] text-[white] text-[15px] outline-none [transition:0.3s] focus:border-[#8ea2ff]"
+                  className="w-full px-[5px] py-[10px] bg-transparent border-b-[1px] border-[#555] text-white text-[15px] outline-none focus:border-[#8ea2ff]"
                   placeholder="Enter Your password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+
+                <span
+                  className="absolute right-[10px] top-[35px] cursor-pointer text-[#aaa]"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+                </span>
               </label>
-              <label htmlFor="">
+              <label className="relative">
                 <p>Repeat Password:</p>
+
                 <input
-                  className="w-full px-[5px] py-[10px] bg-transparent border-b-[1px] border-[#555] text-[white] text-[15px] outline-none [transition:0.3s] focus:border-[#8ea2ff]"
+                  className="w-full px-[5px] py-[10px] bg-transparent border-b-[1px] border-[#555] text-white text-[15px] outline-none focus:border-[#8ea2ff]"
                   placeholder="Repeat password"
-                  type="password"
+                  type={showRepeatPassword ? "text" : "password"}
                   value={repeatPassword}
                   onChange={(e) => setRepeatPassword(e.target.value)}
                 />
+
+                <span
+                  className="absolute right-[10px] top-[35px] cursor-pointer text-[#aaa]"
+                  onClick={() => setShowRepeatPassword(!showRepeatPassword)}
+                >
+                  {showRepeatPassword ? <FaEye /> : <FaEyeSlash />}
+                </span>
               </label>
             </div>
 

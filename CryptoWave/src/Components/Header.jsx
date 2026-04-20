@@ -30,7 +30,7 @@ const Header = ({ title }) => {
   }, []);
 
   return (
-    <header className="flex items-center justify-between px-8 py-4 border-b border-[#1f2937] bg-[#0b0e14]/50 backdrop-blur-md sticky top-0 z-40">
+    <header className="flex items-center justify-between px-8 py-4 border-b border-[#1f2937] bg-[#0b0e14]/50 backdrop-blur-md sticky top-0 z-[40]">
       <div className="flex flex-col">
         <h1 className="text-xl font-bold text-white tracking-tight">
           {title || "Overview"}

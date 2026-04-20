@@ -54,12 +54,12 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex text-white">
+    <div className="flex text-white h-screen overflow-hidden">
       <Toaster />
-      <div className="w-[300px] h-screen sticky top-0 bg-[#11151C]">
+      <div className="w-[300px] bg-[#11151C] flex-shrink-0">
         <Sidebar />
       </div>
-      <div className="flex-1 min-h-screen bg-[#0B0E14]">
+      <div className="flex-1 flex flex-col bg-[#0B0E14] overflow-y-auto">
         <Header title="Market Dashboard" />
         <div className="p-8">
           <div className="overflow-x-auto bg-[#111827]/30 rounded-2xl border border-white/5 shadow-2xl">
